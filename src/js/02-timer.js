@@ -53,13 +53,6 @@ const options = {
 
 flatpickr('#datetime-picker', options);
 
-const startTimer = () => {
-  setInterval = () => {
-    const deltaTime = selectedDate - currentDate;
-    console.log(deltaTime);
-  };
-};
-
 function addLeadingZero(value) {
   return String(value).padStart(2, 0);
 }
