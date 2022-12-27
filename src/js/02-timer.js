@@ -18,8 +18,14 @@ let selectedDate;
 refs.startBtn.setAttribute('disabled', true);
 refs.startBtn.addEventListener('click', () => {
   refs.startBtn.setAttribute('disabled', true);
-  setInterval(() => {
+  const intervalId = setInterval(() => {
     const deltaTime = selectedDate - Date.now();
+
+    if (deltaTime <= 0) {
+      clearInterval(intervalId);
+      return;
+    }
+
     const { days, hours, minutes, seconds } = convertMs(deltaTime);
     updateClock({ days, hours, minutes, seconds });
   }, 1000);
